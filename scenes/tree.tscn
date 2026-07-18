@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b8to2kmnyb0yi"]
+
+[ext_resource type="Texture2D" uid="uid://bq512jw1f6usu" path="res://assets/tiles/Overworld_Tileset.png" id="1_l2egl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2egl"]
+atlas = ExtResource("1_l2egl")
+region = Rect2(48, 148, 32, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yif8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2egl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3yif8"]
+radius = 4.0
+
+[node name="Tree" type="StaticBody2D" unique_id=1455335120]
+scale = Vector2(4, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=648107219]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_3yif8")
+offset = Vector2(0, -10.545)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1643832055]
+position = Vector2(0, 4.17)
+shape = SubResource("CircleShape2D_3yif8")

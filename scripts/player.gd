@@ -8,7 +8,14 @@ var last_facing_direction := Vector2.ZERO
 
 var attacking := false
 
+var current_interactable = null
+
+func _ready() -> void:
+	add_to_group("player")
+
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("interact") and current_interactable:
+		_interact()
 	if Input.is_action_just_pressed("attack"):
 		velocity = Vector2.ZERO
 		_attack()
@@ -30,6 +37,15 @@ func _physics_process(delta: float) -> void:
 func _attack() -> void:
 	attacking = true
 
+func _interact() -> void:
+	current_interactable.interact()
+
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name.begins_with("attack"):
 		attacking = false
+
+func toggle_current_object(reference) -> void:
+	if current_interactable == null:
+		current_interactable = reference
+	else:
+		current_interactable = null
