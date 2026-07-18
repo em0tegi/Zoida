@@ -8,6 +8,8 @@ const SPEED = 300.0
 var health := 100
 
 var is_dead := false
+var is_ready_to_die := false
+var got_hit := false
 
 func _ready() -> void:
 	add_to_group("enemy")
@@ -25,8 +27,16 @@ func _physics_process(_delta: float) -> void:
 func get_damage(damage: int) -> void:
 	if health > 0:
 		health -= damage
+		got_hit = true
 	if health <= 0:
-		is_dead = true
+		is_ready_to_die = true
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
-	queue_free()
+	if anim_name.begins_with("hit"):
+		if !is_ready_to_die:
+			got_hit = false
+		else:
+			got_hit = false
+			is_dead = true
+	if anim_name.begins_with("death"):
+		queue_free()

@@ -10,7 +10,7 @@ var attacking := false
 
 var current_interactable = null
 
-var damage := 50
+var damage := 20
 
 func _ready() -> void:
 	add_to_group("player")
