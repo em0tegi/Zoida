@@ -8,7 +8,7 @@ var loot := ["Apple", "Wood", "Rock"]
 func _ready() -> void:
 	add_to_group("interactable_object")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_interact_zone_body_entered(body: Node2D) -> void:

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b14li1epm2mfe" path="res://assets/tiles/water_tile_anim_strip_8.png" id="2_w8frs"]
 [ext_resource type="Texture2D" uid="uid://dqlo7gm3tuan2" path="res://assets/tiles/edge_water_tile_anim_strip_8.png" id="3_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://dahfx8mhnw558" path="res://scenes/chest.tscn" id="5_2r41h"]
+[ext_resource type="PackedScene" uid="uid://cieuoyo15ept4" path="res://scenes/enemy.tscn" id="7_klq6b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mx8sn"]
 texture = ExtResource("1_w8frs")
@@ -551,3 +552,6 @@ position = Vector2(338, 253)
 
 [node name="Tree" parent="." unique_id=1455335120 instance=ExtResource("1_2q6dc")]
 position = Vector2(126, 134)
+
+[node name="Enemy" parent="." unique_id=1293663190 instance=ExtResource("7_klq6b")]
+position = Vector2(522, 317)
